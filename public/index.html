@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Yeiduin</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="login-screen">
+        <h1>Chat Yeiduin</h1>
+        <input type="text" id="username-input" placeholder="Nombre de usuario">
+        <select id="icon-select">
+            <option value="👤">👤</option>
+            <option value="😊">😊</option>
+            <option value="🐱">🐱</option>
+            <option value="🐶">🐶</option>
+            <option value="🦄">🦄</option>
+        </select>
+        <button id="join-btn">Unirse al chat</button>
+    </div>
+
+    <div id="chat-screen" style="display: none;">
+        <h1>Chat Yeiduin</h1>
+        <div id="chat-container">
+            <div id="message-container"></div>
+            <div id="user-list-container">
+                <h2>Usuarios conectados</h2>
+                <ul id="user-list"></ul>
+            </div>
+        </div>
+        <div id="input-container">
+            <input type="text" id="message-input" placeholder="Escribe un mensaje...">
+            <button id="send-btn">Enviar</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
