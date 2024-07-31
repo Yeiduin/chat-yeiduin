@@ -10,12 +10,7 @@ const url = `mongodb+srv://${process.env.USUARIO}:${process.env.PASSWORD}@cluste
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server, {
-  cors: {
-    origin: url,
-    methods: ["GET", "POST"],
-  },
-});
+const io = socketIo(server);
 
 const User = require("./models/User");
 const Message = require("./models/Message");
