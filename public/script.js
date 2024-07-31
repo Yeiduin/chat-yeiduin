@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io("https://chat-yeiduin.onrender.com/");
 
 const loginScreen = document.getElementById("login-screen");
 const chatScreen = document.getElementById("chat-screen");
