@@ -1,6 +1,4 @@
-const socket = require("socket.io-client");
-
-const socket = io("https://chat-yeiduin.vercel.app/");
+const socket = io();
 
 const loginScreen = document.getElementById("login-screen");
 const chatScreen = document.getElementById("chat-screen");
