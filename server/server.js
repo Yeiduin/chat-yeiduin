@@ -6,9 +6,16 @@ const cors = require("cors");
 const path = require("path");
 require("dotenv").config();
 
+const url = `mongodb+srv://${process.env.USUARIO}:${process.env.PASSWORD}@cluster0.2upce1p.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority&appName=Cluster0`;
+
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server);
+const io = socketIo(server, {
+  cors: {
+    origin: url,
+    methods: ["GET", "POST"],
+  },
+});
 
 const User = require("./models/User");
 const Message = require("./models/Message");
@@ -16,8 +23,6 @@ const Message = require("./models/Message");
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "../public")));
-
-const url = `mongodb+srv://${process.env.USUARIO}:${process.env.PASSWORD}@cluster0.2upce1p.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority&appName=Cluster0`;
 
 mongoose
   .connect(url, {
